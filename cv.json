@@ -1,0 +1,58 @@
+{
+	"name": "Phạm Turng Sơn",
+	"age": 21,
+	"avatar": "pictures/1312485.jpg",
+	"country": "Việt Nam",
+	"Job": "Student | developer",
+	"contant": {
+		"email": "pts.seiryu95@gmail.com",
+		"phone": "01667841209",
+		"website": "teamdas.esy.es"
+	},
+	"adress": "41 Đào Duy Từ, Quận 10, Thành phố Hồ Chí Minh",
+	"summary": "Male student in University of Science (HCMUS) and:",
+	"experiences": [{
+		"position": "Android developer",
+		"company": "DEV TEAM",
+		"Logo": "picture/logo.png",
+		"time": "September 2015",
+		"Describe": "Develop android application in DEV TEAM company."
+	}, {
+		"position": "Sever Developer",
+		"company": "DEV TEAM",
+		"Logo": "picture/logo.png",
+		"time": "March 2016",
+		"Describe": "Create sever to store data for some application in DEV TEAM company."
+	}],
+	"project": [{
+		"name": "Game car",
+		"time": "October 2014",
+		"Describe": "Baker & Taylor has the stated goal of having a best-of-breed B2B eCommerce site that will enable all of their cu"
+	}, {
+		"name": "Game caro",
+		"time": "October 2015",
+		"Describe": "Baker & Taylor has the stated goal of having a best- "
+	}],
+	"skills": [
+		"C sharp",
+		"C/C++",
+		"Android",
+		"PHP",
+		"HTML/CSS"
+		
+	],
+	"education": [{
+			"name": " University HCMUS",
+			"major": "Software",
+			"graduate": "September 2017",
+			"logo": "picture/logo.png"
+		}, {
+			"name": "hight school",
+			"major": "student",
+			"graduate": "September 2013",
+			"logo": "picture/logo.png"
+		}
+
+	]
+
+}

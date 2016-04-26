@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="DAGK-App">
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body ng-controller="Contain-Controller">
+	<p>My data: {{mydata}}</p>
+	<br/>
+	<p>Name: {{mydata.name}}</p>
+	<ul>
+		<li ng-repeat="skill in mydata.skills">
+			{{skill}}
+		</li>
+	</ul>
+</body>
+</html>
