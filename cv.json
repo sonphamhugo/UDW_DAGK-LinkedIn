@@ -1,38 +1,56 @@
 {
-	"name": "Phạm Turng Sơn",
-	"age": 21,
-	"avatar": "pictures/1312485.jpg",
+	"name": "Phạm Trung Sơn",
+	"age": "21",
+	"avatar": "image/avatar.png",
 	"country": "Việt Nam",
-	"Job": "Student | developer",
+	"job": "Student | Developer",
+	"current":"Student University of Sciences",
 	"contant": {
 		"email": "pts.seiryu95@gmail.com",
 		"phone": "01667841209",
-		"website": "teamdas.esy.es"
+		"website": "https://www.facebook.com/sonpham1995"
 	},
-	"adress": "41 Đào Duy Từ, Quận 10, Thành phố Hồ Chí Minh",
-	"summary": "Male student in University of Science (HCMUS) and:",
+	"address": "41 Đào Duy Từ, Quận 10, Thành phố Hồ Chí Minh",
+	"summary": [
+		"Male student in University of Science (HCMUS).",
+		"Working in software company DEV TEAM.",
+		"Personality: Enthusiasm, funny, sociable, like team work"],
 	"experiences": [{
 		"position": "Android developer",
 		"company": "DEV TEAM",
-		"Logo": "picture/logo.png",
+		"logo": "image/logo_company.jpg",
 		"time": "September 2015",
-		"Describe": "Develop android application in DEV TEAM company."
+		"describe": "Develop android application in DEV TEAM company."
 	}, {
 		"position": "Sever Developer",
 		"company": "DEV TEAM",
-		"Logo": "picture/logo.png",
+		"logo": "image/logo_company.jpg",
 		"time": "March 2016",
-		"Describe": "Create sever to store data for some application in DEV TEAM company."
-	}],
-	"project": [{
-		"name": "Game car",
-		"time": "October 2014",
-		"Describe": "Baker & Taylor has the stated goal of having a best-of-breed B2B eCommerce site that will enable all of their cu"
+		"describe": "Create sever to store data for some application in DEV TEAM company."
 	}, {
-		"name": "Game caro",
-		"time": "October 2015",
-		"Describe": "Baker & Taylor has the stated goal of having a best- "
+		"position": ".Net Developer",
+		"company": "University of Science",
+		"logo": "image/logo_university.png",
+		"time": "March 2016",
+		"describe": "Study about .Net and process develop software."
 	}],
+	"projects": [{
+		"name": "Tivi Viet",
+		"time": "March 2016",
+		"describe": "Application watch free tivi online on android",
+		"teamate":"Nguyễn Trung Toán, Nguyễn Quốc Thái"
+	}, {
+		"name": "Read news",
+		"time": "December 2015",
+		"describe": "Application read news online on android",
+		"teamate":"Nguyễn Quốc Thái"
+	}, { 
+		"name": "Caro game",
+		"time": "December 2015",
+		"describe": "Play caro on LAN use Socket .Net",
+		"teamate":"Dương Trọng Quyền"
+	}],
+
 	"skills": [
 		"C sharp",
 		"C/C++",
@@ -41,18 +59,11 @@
 		"HTML/CSS"
 		
 	],
-	"education": [{
+
+	"educations": [{
 			"name": " University HCMUS",
 			"major": "Software",
-			"graduate": "September 2017",
-			"logo": "picture/logo.png"
-		}, {
-			"name": "hight school",
-			"major": "student",
-			"graduate": "September 2013",
-			"logo": "picture/logo.png"
-		}
-
-	]
+			"graduate": "September 2017"
+	}]
 
 }

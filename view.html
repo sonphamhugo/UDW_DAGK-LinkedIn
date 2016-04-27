@@ -1,18 +1,147 @@
-<!DOCTYPE html>
-<html ng-app="DAGK-App">
-<head>
-	<title></title>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-	<script src="script.js"></script>
-</head>
-<body ng-controller="Contain-Controller">
-	<p>My data: {{mydata}}</p>
-	<br/>
-	<p>Name: {{mydata.name}}</p>
-	<ul>
-		<li ng-repeat="skill in mydata.skills">
-			{{skill}}
-		</li>
-	</ul>
-</body>
+<html lang="fr" class="os-win" ng-app="DAGK-App">
+   <!--<![endif]-->
+   <head>
+      <meta charset="UTF-8">
+      <title>SonPham | LinkedIn</title>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://static.licdn.com/scds/concat/common/css?h=6cr4z4epp0a5mxufg332nezs4-a4kjc5uqttio53azw54aex6s3-as8kt5bqspxc01tl9cizqa37j">
+      <link rel="stylesheet" href="https://static.licdn.com/sc/h/2xaxikqq25vw5643sgv48cat9">
+      <script src="script.js"></script>
+   </head>
+   <body class="js guest" dir="ltr" id="pagekey-public_profile_v3_desktop">
+      <div id="application-body" ng-controller="Contain-Controller">
+         <main id="layout-main" role="main">
+            <div id="wrapper">
+               <div id="profile">
+                  <section id="topcard" class="profile-section">
+                     <div class="profile-card vcard">
+                        <div class="profile-picture" data-section="picture">
+                        	<a href= "">
+                        		<img lazyload="true" class="image photo lazy-loaded" alt={{mydata.name}} width="200" height="200" src={{mydata.avatar}}>
+                        	</a>
+                        </div>
+                        <div class="profile-overview">
+                           <div class="profile-overview-content">
+                              <h1 id="name" class="fn">{{mydata.name}}</h1>
+                              <p class="headline title" data-section="headline">{{mydata.job}}</p>
+                              <dl id="demographics">
+                                 <dt>Lieu</dt>
+                                 <dd class="descriptor adr"><span class="locality">{{mydata.address}}</span></dd>
+                                 <dt>Secteur</dt>
+                                 <dd class="descriptor">{{mydata.country}}</dd>
+                              </dl>
+                              <table class="extra-info">
+                                 <tbody>
+                                    <tr data-section="currentPositionsDetails">
+                                       <th>Current</th>
+                                       <td>
+                                             <li><span class="org"><a href="">{{mydata.current}}</a></span></li>
+                                    </tr>
+                                    <tr data-section="pastPositionsDetails">
+                                       <th>Phone</th>
+                                       <td>
+                                             <li><a>{{mydata.contant.phone}}</a></li>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <th>Age</th>
+                                       <td> {{mydata.age}}</td>
+                                    </tr>
+                                    <tr class="websites" data-section="websites">
+                                       <th>Email</th>
+                                       <td>
+                                             <li><a >{{mydata.contant.email}}</a></li>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <a href="https://www.linkedin.com/today/influencers?trk=inf_bdg_profile" title="Jeff est un LinkedIn Influencer" class="influencer-badge">Influenceur</a>
+                           </div>
+                        </div>
+                     </div>
+                  </section>
+                  <section id="summary" data-section="summary" class="profile-section">
+                     <h3 class="title">Summary</h3>
+                     <div class="description">
+                        <ul>
+							<li ng-repeat="item in mydata.summary">
+								<br/>
+								{{item}}
+								<br/>
+							</li>
+						</ul>
+                     </div>
+                  </section>
+                  <section id="experience" class="profile-section">
+                     <h3 class="title">Experience</h3>
+                     <ul class="positions">
+                        <li class="position" data-section="currentPositionsDetails" ng-repeat="item in mydata.experiences">
+                           <header>
+                              <h5 class="logo">
+                              	<a>
+                              		<img src={{item.logo}} class="lazy-loaded" alt={{item.position}}>
+                              	</a>
+                              </h5>
+                              <h4 class="item-title"><a href="">{{item.position}}</a></h4>
+                              <h5 class="item-subtitle"><a href="">{{item.company}}</a></h5>
+                           </header>
+                           <div class="meta"><span class="date-range"><time>{{item.time}}</time> – {{item.describe}}</span></div>
+                        </li>
+                        
+                     </ul>
+                  </section>
+
+                  <section id="projects" data-section="projects" class="profile-section">
+                  	<h3 class="title">Projects</h3>
+                  		<ul>
+                  			<li class="project" ng-repeat="item in mydata.projects">
+                  				<header>
+                  					<h4 class="item-title">
+                  						<a href="" title="B&amp;T NextGen" class="external-link">{{item.name}}</a>
+                  						</h4>
+                  				</header>
+                  				<div class="meta">
+                  					<span class="date-range">
+                  						Starting <time>{{item.time}}</time>
+                  					</span>
+                 				</div>
+                 				<p class="description">{{item.describe}}</p>
+                  				<dl class="contributors">
+                  					<dt>Team members: </dt>
+                  					<dd>
+                  						<ul>
+                  							<li class="contributor">{{item.teamate}}</li>
+                  						</ul>
+                  					</dd>
+                  				</dl>
+               				</li>
+               			</ul>
+               	  </section>
+                  <section id="skills" data-section="skills" class="profile-section">
+                     <h3 class="title">Skill</h3>
+                     <ul class="pills">
+                        <input type="checkbox" id="skills-expander-state-checkbox" class="expander-state-checkbox"/>
+                        	<li class="skill" ng-repeat="item in mydata.skills">
+                        	<a href="" title="Product Development"><span class="wrap">{{item}}</span></a></li>
+                        
+                     </ul>
+               	</section>
+                  <section id="education" data-section="educationsDetails" class="profile-section">
+                  	<h3 class="title">Education</h3>
+                  		<ul class="schools">
+                  			<li class="school" ng-repeat="item in mydata.educations">
+                  				<header>
+                  					<h4 class="item-title">{{item.name}}</h4>
+                  					<h5 class="item-subtitle">{{item.major}}</h5>
+                  				</header>
+                  				<div class="meta">
+                  					<span class="date-range"><time>{{item.graduate}}</time></span>
+                  				</div>
+                  			</li>
+                  		</ul>
+                  	</section>
+               </div>
+         </main>
+        
+   </body>
 </html>
