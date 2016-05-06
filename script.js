@@ -5,5 +5,13 @@ module.controller('Contain-Controller', function($scope, $http) {
 		$scope.mydata = data;
 	});
 
+	$scope.display = true;
+	$scope.getFile = function () {
+        $scope.progress = 0;
+        fileReader.readAsDataUrl($scope.file, $scope)
+                      .then(function(result) {
+                          $scope.imageSrc = result;
+                      });
+    };
 	
 });
