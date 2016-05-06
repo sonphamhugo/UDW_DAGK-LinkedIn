@@ -3,10 +3,24 @@
    <head>
       <meta charset="UTF-8">
       <title>SonPham | LinkedIn</title>
-	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
       <link rel="stylesheet" type="text/css" href="https://static.licdn.com/scds/concat/common/css?h=6cr4z4epp0a5mxufg332nezs4-a4kjc5uqttio53azw54aex6s3-as8kt5bqspxc01tl9cizqa37j">
       <link rel="stylesheet" href="https://static.licdn.com/sc/h/2xaxikqq25vw5643sgv48cat9">
       <script src="script.js"></script>
+      <script>
+         function changeImg(input,idInput1,idInput2) {
+            var files = input.files;
+            if (FileReader && files && files.length) {
+               var fr = new FileReader();
+                 fr.onload = function () {
+                     document.getElementById(idInput1).src = fr.result;
+                     document.getElementById(idInput2).src = fr.result;
+                 }
+                 fr.readAsDataURL(files[0]);
+            }
+         }
+      </script>
+
    </head>
    <body class="js guest" dir="ltr" id="pagekey-public_profile_v3_desktop">
       <div id="application-body" ng-controller="Contain-Controller">
@@ -18,7 +32,7 @@
                      <div class="profile-card vcard">
                         <div class="profile-picture" data-section="picture">
                         	<a href= "">
-                        		<img lazyload="true" class="image photo lazy-loaded" alt={{mydata.name}} width="200" height="200" src={{mydata.avatar}}>
+                        		<img id="imageAvatar" lazyload="true" class="image photo lazy-loaded" alt={{mydata.name}} width="200" height="200" ng-src={{mydata.avatar}}>
                         	</a>
                         </div>
                         <div class="profile-overview">
@@ -80,7 +94,7 @@
                            <header>
                               <h5 class="logo">
                               	<a>
-                              		<img src={{item.logo}} class="lazy-loaded" alt={{item.position}}>
+                              		<img id="imageLogo" src={{item.logo}} class="lazy-loaded" alt={{item.position}} height="50" width"50">
                               	</a>
                               </h5>
                               <h4 class="item-title"><a href="">{{item.position}}</a></h4>
@@ -150,9 +164,8 @@
                      <section id="topcard" class="profile-section">
                         <div class="profile-card vcard">
                            <div class="profile-picture" data-section="picture">
-                              <a href= "">
-                                 <img lazyload="true" class="image photo lazy-loaded" alt={{mydata.name}} width="200" height="200" src={{mydata.avatar}}>
-                              </a>
+                              <img id="imageAvatarInput" lazyload="true" class="image photo lazy-loaded" alt={{tempdata.name}} width="200" height="200" ng-src={{tempdata.avatar}}>
+                              <input type="file" onchange="changeImg(this,'imageAvatar','imageAvatarInput')" style="font-size:10px" />
                            </div>
                            <div class="profile-overview">
                               <div class="profile-overview-content">
@@ -211,10 +224,9 @@
                         <ul class="positions">
                            <li class="position" data-section="currentPositionsDetails" ng-repeat="item in tempdata.experiences">
                               <header>
-                                 <h5 class="logo">
-                                    <a>
-                                       <img src={{item.logo}} class="lazy-loaded" alt={{item.position}}>
-                                    </a>
+                                 <h5 class="logo"> 
+                                    <img id="imageLogoInput" src={{item.logo}} class="lazy-loaded" alt={{item.position}} height="50" width="50">
+                                     <input type="file" onchange="changeImg(this,'imageLogo','imageLogoInput')" width="10"  style="font-size:10px" />
                                  </h5>
                                  <h4 class="item-title"><input ng-model="tempdata.experiences[$index].position"></input></h4>
                                  <h5 class="item-subtitle"><input ng-model="tempdata.experiences[$index].company"></input></h5>
