@@ -12,9 +12,9 @@
 	},
 	"address": "41 Đào Duy Từ, Quận 10, Thành phố Hồ Chí Minh",
 	"summary": [
-		"Male student in University of Science (HCMUS).",
-		"Working in software company DEV TEAM.",
-		"Personality: Enthusiasm, funny, sociable, like team work"],
+		{"str":"Male student in University of Science (HCMUS)."},
+		{"str":"Working in software company DEV TEAM."},
+		{"str":"Personality: Enthusiasm, funny, sociable, like team work"}],
 	"experiences": [{
 		"position": "Android developer",
 		"company": "DEV TEAM",
@@ -52,11 +52,11 @@
 	}],
 
 	"skills": [
-		"C sharp",
-		"C/C++",
-		"Android",
-		"PHP",
-		"HTML/CSS"
+		{"str":"C sharp"},
+		{"str":"C/C++"},
+		{"str":"Android"},
+		{"str":"PHP"},
+		{"str":"HTML/CSS"}
 		
 	],
 

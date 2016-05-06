@@ -12,7 +12,8 @@
       <div id="application-body" ng-controller="Contain-Controller">
          <main id="layout-main" role="main">
             <div id="wrapper">
-               <div id="profile">
+               <div id="profile" ng-show="display">
+                  <button class="edit" ng-click="display=false; tempdata = mydata;">Edit</button>
                   <section id="topcard" class="profile-section">
                      <div class="profile-card vcard">
                         <div class="profile-picture" data-section="picture">
@@ -66,7 +67,7 @@
                         <ul>
 							<li ng-repeat="item in mydata.summary">
 								<br/>
-								{{item}}
+								{{item.str}}
 								<br/>
 							</li>
 						</ul>
@@ -97,7 +98,7 @@
                   			<li class="project" ng-repeat="item in mydata.projects">
                   				<header>
                   					<h4 class="item-title">
-                  						<a href="" title="B&amp;T NextGen" class="external-link">{{item.name}}</a>
+                  						<a href="" title="Project" class="external-link">{{item.name}}</a>
                   						</h4>
                   				</header>
                   				<div class="meta">
@@ -122,7 +123,7 @@
                      <ul class="pills">
                         <input type="checkbox" id="skills-expander-state-checkbox" class="expander-state-checkbox"/>
                         	<li class="skill" ng-repeat="item in mydata.skills">
-                        	<a href="" title="Product Development"><span class="wrap">{{item}}</span></a></li>
+                        	<a href="" title="Product Development"><span class="wrap">{{item.str}}</span></a></li>
                         
                      </ul>
                	</section>
@@ -140,6 +141,142 @@
                   			</li>
                   		</ul>
                   	</section>
+               </div>
+               <div id="profile" ng-show="!display">
+                  <form ng-submit="mydata = tempdata; display=true">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button  class="btn" type="button" ng-click="display=true">Cancel</button>
+                        
+                     <section id="topcard" class="profile-section">
+                        <div class="profile-card vcard">
+                           <div class="profile-picture" data-section="picture">
+                              <a href= "">
+                                 <img lazyload="true" class="image photo lazy-loaded" alt={{mydata.name}} width="200" height="200" src={{mydata.avatar}}>
+                              </a>
+                           </div>
+                           <div class="profile-overview">
+                              <div class="profile-overview-content">
+                                 <input id="name" class="fn" ng-model="tempdata.name" required></input>
+                                 <input class="headline title" ng-model="tempdata.job" data-section="headline"></input>
+                                 <dl id="demographics">
+                                    <dt>Lieu</dt>
+                                    <dd class="descriptor adr"><textarea class="locality" ng-model="tempdata.address"></textarea></dd>
+                                    <dt>Secteur</dt>
+                                    <in class="descriptor"><input class="locality" ng-model="tempdata.country"></input></dd>
+                                 </dl>
+                                 <table class="extra-info">
+                                    <tbody>
+                                       <tr data-section="currentPositionsDetails">
+                                          <th>Current</th>
+                                          <td>
+                                                <li><span class="org"><textarea  ng-model="tempdata.current"></textarea></span></li>
+                                       </tr>
+                                       <tr data-section="pastPositionsDetails">
+                                          <th>Phone</th>
+                                          <td>
+                                                <li><input  ng-model="tempdata.contant.phone"></input></li>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <th>Age</th>
+                                          <td><input ng-model="tempdata.age"></input></td>
+                                       </tr>
+                                       <tr class="websites" data-section="websites">
+                                          <th>Email</th>
+                                          <td>
+                                                <li><textarea ng-model="tempdata.contant.email"></textarea></li>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                                 <a href="https://www.linkedin.com/today/influencers?trk=inf_bdg_profile" title="Jeff est un LinkedIn Influencer" class="influencer-badge">Influenceur</a>
+                              </div>
+                           </div>
+                        </div>
+                     </section>
+                     <section id="summary" data-section="summary" class="profile-section">
+                        <h3 class="title">Summary</h3>
+                        <div class="description">
+                           <ul>
+                        <li ng-repeat="item in tempdata.summary">
+                           <br/>
+                           <textarea ng-model="tempdata.summary[$index].str"></textarea>
+                           <br/>
+                        </li>
+                           </ul>
+                        </div>
+                     </section>
+                     <section id="experience" class="profile-section">
+                        <h3 class="title">Experience</h3>
+                        <ul class="positions">
+                           <li class="position" data-section="currentPositionsDetails" ng-repeat="item in tempdata.experiences">
+                              <header>
+                                 <h5 class="logo">
+                                    <a>
+                                       <img src={{item.logo}} class="lazy-loaded" alt={{item.position}}>
+                                    </a>
+                                 </h5>
+                                 <h4 class="item-title"><input ng-model="tempdata.experiences[$index].position"></input></h4>
+                                 <h5 class="item-subtitle"><input ng-model="tempdata.experiences[$index].company"></input></h5>
+                              </header>
+                              <div class="meta">
+                                 <input ng-model="tempdata.experiences[$index].time"></input>
+                                 <textarea ng-model="tempdata.experiences[$index].describe"></textarea>
+                              </div>
+                           </li>
+                           
+                        </ul>
+                     </section>
+
+                     <section id="projects" data-section="projects" class="profile-section">
+                        <h3 class="title">Projects</h3>
+                           <ul>
+                              <li class="project" ng-repeat="item in tempdata.projects">
+                                 <header>
+                                    <h4 class="item-title">
+                                       <input ng-model="tempdata.projects[$index].name"></input>
+                                    </h4>
+                                 </header>
+                                 <div class="meta">
+                                    <input ng-model="tempdata.projects[$index].time"></input>
+                              </div>
+                                 <textarea ng-model="tempdata.projects[$index].describe"></textarea>
+                                 <dl class="contributors">
+                                    <dt>Team members: </dt>
+                                    <dd>
+                                       <ul>
+                                          <textarea ng-model="tempdata.projects[$index].teamate"></textarea>
+                                       </ul>
+                                    </dd>
+                                 </dl>
+                              </li>
+                           </ul>
+                       </section>
+                     <section id="skills" data-section="skills" class="profile-section">
+                        <h3 class="title">Skill</h3>
+                        <ul class="pills">
+                           <input type="checkbox" id="skills-expander-state-checkbox" class="expander-state-checkbox"/>
+                              <li class="skill" ng-repeat="item in tempdata.skills">
+                              <a href="" title="Product Development"><input class="wrap" ng-model="tempdata.skills[$index].str"></input></a></li>
+                           
+                        </ul>
+                     </section>
+                     <section id="education" data-section="educationsDetails" class="profile-section">
+                        <h3 class="title">Education</h3>
+                           <ul class="schools">
+                              <li class="school" ng-repeat="item in tempdata.educations">
+                                 <header>
+                                    <h4 class="item-title"><input ng-model="tempdata.educations[$index].name"></input></h4>
+                                    <h5 class="item-subtitle"><input ng-model="tempdata.educations[$index].major"></input></h5>
+                                 </header>
+                                 <div class="meta">
+                                    <span class="date-range"><input ng-model="tempdata.educations[$index].graduate"></input></span>
+                                 </div>
+                              </li>
+                           </ul>
+                        </section>
+                  </form>
+
                </div>
          </main>
         
